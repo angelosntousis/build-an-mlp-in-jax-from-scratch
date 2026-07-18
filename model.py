@@ -53,8 +53,14 @@ def assign_class_labels(inputs, num_classes):
     labels = jnp.argmax(class_scores,axis =1)
     return labels.astype(jnp.int32)
 
-# Step 6 - one_hot_encode_labels (not yet solved)
-# TODO: implement
+# Step 6 - one_hot_encode_labels
+import jax
+import jax.numpy as jnp
+
+
+def one_hot_encode_labels(labels, num_classes):
+    """Convert integer labels into float-valued one-hot vectors."""
+    return jax.nn.one_hot(labels, num_classes, dtype=jnp.float32)
 
 # Step 7 - init_linear_layer (not yet solved)
 # TODO: implement
